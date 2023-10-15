@@ -1,15 +1,22 @@
-import {v4 as uuidv4} from "uuid";
+// import {v4 as uuidv4} from "uuid";
 
-let notes = [ 
-]
+let notes = []
 
 export const getNotes = (req, res) => {
     res.send(notes)
 }
 
 export const saveNotes = (req, res) => {
-    const note = req.body
+    let note = req.body;
+    
+    notes.push({...note})
     console.log(note)
-    // notes.push({note})
     res.send("note has been saved")
+}
+
+export const modifiedNote = (req, res) =>{
+    let massage = req.params
+
+    console.log(massage)
+    res.send(massage)
 }
